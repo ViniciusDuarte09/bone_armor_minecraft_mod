@@ -3,7 +3,6 @@ package net.msvic.bonearmor;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -14,8 +13,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.msvic.bonearmor.item.ModItems;
+import net.msvic.bonearmor.item.Bones;
+import net.msvic.bonearmor.item.Consumables;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -31,11 +30,13 @@ public class BoneArmor {
 
         IEventBus modEventBus = context.getModEventBus();
 
-        ModItems.register(modEventBus);
-
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
+
+        //Pass to the Minecraft an event to instance the items in the DeferredRegister
+        Bones.register(modEventBus);
+        Consumables.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -46,10 +47,11 @@ public class BoneArmor {
 
     }
 
-    // Add the example block item to the building blocks tab
+    // Here, they are adding the item on the Ingredients Tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
-            event.accept(ModItems.HARD_BONE);
+            event.accept(Bones.HARD_BONE);
+            event.accept(Consumables.UNDEAD_WINE_ITEM);
         }
 
     }
