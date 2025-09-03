@@ -35,8 +35,7 @@ public class BoneArmor {
         MinecraftForge.EVENT_BUS.register(this);
 
         //Pass to the Minecraft an event to instance the items in the DeferredRegister
-        Bones.register(modEventBus);
-        Consumables.register(modEventBus);
+        ModRegistries.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -50,8 +49,8 @@ public class BoneArmor {
     // Here, they are adding the item on the Ingredients Tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
-            event.accept(Bones.HARD_BONE);
-            event.accept(Consumables.UNDEAD_WINE_ITEM);
+            event.accept(Bones.HARD_BONE.get());
+            event.accept(Consumables.UNDEAD_WINE_ITEM.get());
         }
 
     }
