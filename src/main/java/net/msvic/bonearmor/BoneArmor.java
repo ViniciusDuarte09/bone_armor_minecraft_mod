@@ -26,16 +26,24 @@ public class BoneArmor {
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
 
+    public static void init(){
+
+        Bones.start();
+        Consumables.start();
+    }
+
     public BoneArmor(FMLJavaModLoadingContext context) {
 
         IEventBus modEventBus = context.getModEventBus();
 
-        modEventBus.addListener(this::commonSetup);
-
-        MinecraftForge.EVENT_BUS.register(this);
+        init();
 
         //Pass to the Minecraft an event to instance the items in the DeferredRegister
         ModRegistries.register(modEventBus);
+
+        modEventBus.addListener(this::commonSetup);
+
+        MinecraftForge.EVENT_BUS.register(this);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

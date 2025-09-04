@@ -11,4 +11,9 @@ public class Bones {
     public static final RegistryObject<Item> HARD_BONE = ModRegistries.ITEMS.register("hard_bone",
             () -> new Item(new Item.Properties()));
 
+
+    public static void start(){}
+
 }
+
+

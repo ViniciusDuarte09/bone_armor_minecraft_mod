@@ -22,4 +22,8 @@ public class Consumables {
                     .stacksTo(1)
                     .craftRemainder(Items.GLASS_BOTTLE)
                     .food(UNDEAD_WINE_PROPERTIES)));
+
+
+    public static void start(){}
+
 }
