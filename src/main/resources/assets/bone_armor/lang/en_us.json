@@ -1,4 +1,6 @@
 {
+  "creativetab.bone_amor_tab" : "Bone Armor Mod",
   "item.bone_armor.hard_bone" : "Hard bone",
-  "item.bone_armor.undead_wine": "Undead wine"
+  "item.bone_armor.undead_wine": "Undead wine",
+  "item.bone_armor.putrid_staff": "Putrid staff"
 }

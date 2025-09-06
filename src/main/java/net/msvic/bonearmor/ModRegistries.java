@@ -1,5 +1,7 @@
 package net.msvic.bonearmor;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -16,9 +18,12 @@ public class ModRegistries {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, BoneArmor.MOD_ID);
 
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MOD_TAB =
+            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, BoneArmor.MOD_ID);
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
+        CREATIVE_MOD_TAB.register(eventBus);
 
     }
 

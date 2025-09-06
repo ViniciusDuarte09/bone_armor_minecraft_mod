@@ -8,7 +8,7 @@ import net.minecraft.world.item.Items;
 import net.minecraftforge.registries.RegistryObject;
 import net.msvic.bonearmor.ModRegistries;
 
-//This class control the foods, potions and the items who interect with player
+//This class control the foods, potions and the items who interact with player
 public class Consumables {
 
     public static final FoodProperties UNDEAD_WINE_PROPERTIES = new FoodProperties.Builder()
@@ -19,7 +19,7 @@ public class Consumables {
 
     public static final RegistryObject<Item> UNDEAD_WINE_ITEM = ModRegistries.ITEMS.register("undead_wine",
             () -> new Item(new Item.Properties()
-                    .stacksTo(1)
+                    .stacksTo(16)
                     .craftRemainder(Items.GLASS_BOTTLE)
                     .food(UNDEAD_WINE_PROPERTIES)));
 

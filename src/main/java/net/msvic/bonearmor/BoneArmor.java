@@ -13,8 +13,10 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.msvic.bonearmor.GUI.CustomCreativeTab;
 import net.msvic.bonearmor.item.Bones;
 import net.msvic.bonearmor.item.Consumables;
+import net.msvic.bonearmor.item.Weapons;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -30,6 +32,8 @@ public class BoneArmor {
 
         Bones.start();
         Consumables.start();
+        CustomCreativeTab.start();
+        Weapons.start();
     }
 
     public BoneArmor(FMLJavaModLoadingContext context) {
@@ -57,8 +61,6 @@ public class BoneArmor {
     // Here, they are adding the item on the Ingredients Tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS){
-            event.accept(Bones.HARD_BONE.get());
-            event.accept(Consumables.UNDEAD_WINE_ITEM.get());
         }
 
     }
